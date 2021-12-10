@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+        * {
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            font-family: 'Montserrat', sans-serif;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #03ebe3;
+            padding: 10px;
+        }
+
+        .text {
+            width: 250px;
+            height: 35px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            border: 1px solid;
+        }
+
+        .main {
+            max-width: 700px;
+            width: 100%;
+            background: #ff0000;
+            padding: 25px 30px;
+            border-radius: 5px;
+        }
+
+	</style>
+</head>
+<body>
+	<div class="ui container" style="padding-top: 12em;padding-bottom: 5%;width: 60ch;">
+		<header>
+			<h1 class="ui header"> Airline Booking System </h1>
+		</header>
+		<h2>Login as User</h2>
+		<form method="POST">
+			<input class="text" type="text" placeholder="Enter your username" name="username" required><br>
+			<input id="pass" class="text" type="Password" placeholder="Enter your password" name="passw" required>
+			<br>
+			<a href="{{ url_for('login_agent') }}"><u>Login as Travelling agent</u></a>
+			<br><br>
+			<input type="submit" value="Submit">
+		</form>
+		<div class="ui {% if not error %}hidden {% endif %}error message">
+			{% if error is defined and error is not string %}
+			<div class="header">{{ error[0] }}</div>
+			<ul class="list">
+				{% for item in error[1:] %}
+				<li>{{ item }}</li>
+				{% endfor %}
+			</ul>
+			{% else %}
+				{{ error }}
+			{% endif %}
+		</div>
+	</div>
+</body>
+</html>
