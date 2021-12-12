@@ -124,10 +124,40 @@ def travellingagent_dashboard():
 
 @app.route('/plan_my_trip', methods = ['GET', 'POST'])
 def plan_my_trip():
-    if request.method == 'GET':
+        if request.method == 'GET':
         return render_template('plan_my_trip.html')
     elif request.method == 'POST':
-        return 'ok'
+        return render_template('plan_my_trip.html')
+        fname = request.form.get('fname')
+        mname = request.form.get('mname')
+        lname = request.form.get('lname')
+        dob = request.form.get('dob')
+        phno = request.form.get('phno')
+        gender = request.form.get('gender')
+        passport_no = request.form.get('passport_no')
+        ctype = request.form.get('ctype')
+        source = request.form.get('source')
+        dest = request.form.get('dest')
+        location = request.form.get('location')
+
+        # checking if middle name exists
+        if mname == "":
+            mname = NULL
+        rtn = mysql_utils.plan_my_trip(cxn, fname, mname, lname, dob, phno, gender, passport_no, stype, ctype, location, source, dest)
+
+
+
+@app.route('/booking', methods = ['GET', 'POST'])
+def booking(trip_id):
+    discount = round(random.uniform(70, 200), 2)
+    tax = round(random.uniform(45, 100), 2)
+    price = float(random.randrange(1000, 2000, 50), 2)
+    final_amt = price + tax - discount
+    fare_type = "online"    #default value, can be update in booking page
+    if request.method == 'GET':
+        return render_template('booking.html')
+    elif request.method == 'POST':
+        return render_template('booking.html')
 
 
 
