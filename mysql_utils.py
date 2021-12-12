@@ -160,9 +160,7 @@ def plan_my_trip(cxn, fname, mname, lname, dob, phno, gender, passport_no, stype
         #inserting SEAT details
         cursor.execute("insert into seat values(%s,%s,%s,%s,%s,%s)", (randrange(1,999), stype, ctype, location, airplane_no, travel_id))
         
-
-        list = []
-        cursor.execute((discount, tax, final_amt, price, fare_type, trip_id))
+        return trip_id
 
     except psycopg2.Error as ex:
         logger.error(str(ex))
