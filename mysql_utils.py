@@ -1,8 +1,9 @@
 import logging
-
 import psycopg2
-
+import random
+import string
 from colored_logger import ColoredLogger
+
 
 # run when being imported as a module
 # initiate logger
