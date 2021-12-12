@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> plan my trip </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+    <style>
+        .navbar {
+            padding-bottom: 0px;
+        }
+
+        .navbar-brand {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+
+        .bg-danger {
+            background-color: #1fc7d6 !important;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .details {
+            max-width: 700px;
+            width: 100%;
+            padding: 25px 30px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        * {
+            margin: 1px;
+            padding: 2px;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .text {
+            width: 250px;
+            height: 35px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            border: 1px solid;
+        }
+
+        .container {
+            width: 250px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<div class="main">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-danger">
+        <a style="color:white;" class="navbar-brand" href="/"><font face="Comic sans MS" size="4"><span ="plane">&#9992 </span>Airline Booking System</font></a>
+
+
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: white;" href="logout.html">Logout &nbsp; <i class="fas fa-sign-out-alt"></i></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <br><br>
+    <header>
+        <body>
+            <div class="details">
+    </header>
+    <div class="user">
+        <h4><b>User details</b></h4>
+        <form method="POST">
+            <label>First name : </label>
+            <input class="text" type="text" placeholder="Enter your first name" name="fname" required>
+            <label>Middle name : </label>
+            <input class="text" type="text" placeholder="...middle name" name="mname">
+            <label>Last name : </label>
+            <input class="text" type="text" placeholder="...last name" name="lname" required><br>
+            <label> Gender : </label>
+            <input type="radio" id="gender" name="gender" value="M">
+            <label for="gender">Male</label>
+            <input type="radio" id="gender" name="gender" value="F">
+            <label for="gender">Female</label>
+            <br>
+            <label> Phone number : </label>
+            <input class="text" type="tel" id="phone" placeholder="Enter your 10-digit ph no." name="phno" pattern=[0-9]{10} required><br>
+            <label> DOB : </label>
+            <input class="text" type="date" placeholder="DOB" name="dob" min="1900-01-01" max="2021-12-13" required><br>
+            <label> Passport no: </label>
+            <input class="text" type="text" placeholder="XXXXXXXX" name="passport_no" pattern=[0-9A-Za-z]{8} oninput="this.value=this.value.toUpperCase()" required>
+            <br /><br />
+            <h4><b>Flight details</b></h4>
+            <label>Source airport:</label>
+            <select id="source" name="source">
+                <option value="VIJU">Jammu Airport</option>
+                <option value="VAAH">Sardar Vallabhbhai Patel International Airport</option>
+                <option value="VOBG">HAL Airport </option>
+                <option value="VIDD">Safdarjung Airport</option>
+                <option value="VCCB">Batticaloa Airport</option>
+                <option value="VCCK">Koggala Airport </option>
+                <option value="VGRJ">Shah Makhdum Airport</option>
+                <option value="VHSS">Shun Tak Heliport</option>
+                <option value="VNKT">Tribhuvan International Airport </option>
+                <option value="VQPR"> Paro Airport</option>
+                <option value="VLPS">Pakse Airport</option>
+            </select>
+            <label>Destination airport:</label>
+            <select id="dest" name="dest">
+                <option value="VIJU">Jammu Airport</option>
+                <option value="VAAH">Sardar Vallabhbhai Patel International Airport</option>
+                <option value="VOBG">HAL Airport </option>
+                <option value="VIDD">Safdarjung Airport</option>
+                <option value="VCCB">Batticaloa Airport</option>
+                <option value="VCCK">Koggala Airport </option>
+                <option value="VGRJ">Shah Makhdum Airport</option>
+                <option value="VHSS">Shun Tak Heliport</option>
+                <option value="VNKT">Tribhuvan International Airport </option>
+                <option value="VQPR"> Paro Airport</option>
+                <option value="VLPS">Pakse Airport</option>
+            </select><br>
+    </div>
+
+    <div class="seat">
+        <h4><b>Seat Preference </b></h4>
+        <label> Seat Type : </label>
+        <input type="radio" id="seat" name="stype" value="sleeper">
+        <label for="stype">Sleeper</label>
+        <input type="radio" id="seat" name="stype" value="seater">
+        <label for="stype">Seater</label>
+        <input type="radio" id="seat" name="stype" value="couch">
+        <label for="stype">Couch</label>
+        </input><br>
+        <label> Class : </label>
+        <select id="class" name="ctype">
+            <option value="Business">Business</option>
+            <option value="First">First</option>
+            <option value="Economy">Economy</option>
+        </select><br>
+        <label> Location: </label>
+        <input type="radio" id="loc" name="location" value="Aisle">
+        <label for="location">Aisle</label>
+        <input type="radio" id="loc" name="location" value="Window">
+        <label for="location">Window</label>
+        <input type="radio" id="loc" name="location" value="Middle">
+        <label for="location">Middle</label>
+        <br>
+    </div>
+    
+    <div class="container">
+        <input class="button" type="submit" value="Submit">
+    </div>
+    </form>
+</div>
+</body>
+</html>
+
