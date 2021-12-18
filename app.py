@@ -64,6 +64,7 @@ def home():
         return redirect(url_for('travellingagent_dashboard'))
 
 
+
 @app.route('/login_user', methods = ['GET', 'POST'])
 def login_user():
     if request.method == 'GET':
@@ -76,16 +77,6 @@ def login_user():
             return render_template('travellingagent_dashboard.html')
         else:
             return render_template('login_user.html', error = 'Incorrect username or password!')
-        '''
-        if username == 'user_user1' and passw == 'pqrs':
-            return render_template('travellingagent_dashboard.html')
-        elif username == 'user_user2' and passw == '3456':
-            return render_template('travellingagent_dashboard.html')
-        elif username != 'user_user1' or username != 'user_user2':
-            return render_template('login_user.html', error = 'Username is invalid. Please enter a valid username')
-        elif passw != 'pqrs' or passw != '3456':
-            return render_template('login_user.html', error = 'Incorrect password.')
-        '''
 
 
 
@@ -101,16 +92,6 @@ def login_agent():
             return render_template('travellingagent_dashboard.html')
         else:
             return render_template('login_agent.html', error = 'Incorrect username or password!')
-        '''
-        if username == 'travelling_agent_alex' and passw == 'abcd':
-            return render_template('travellingagent_dashboard.html')
-        elif username == 'travelling_agent_julia' and passw == '1234':
-            return render_template('travellingagent_dashboard.html')
-        elif username != 'travelling_agent_alex' or username != 'travelling_agent_julia':
-            return render_template('login_agent.html', error = 'Agent id is invalid. Please enter a valid agent id.')
-        elif passw != 'abcd' or passw != '1234':
-            return render_template('login_agent.html', error = 'Incorrect password.')
-        '''
 
 
 
@@ -125,25 +106,25 @@ def travellingagent_dashboard():
 @app.route('/plan_my_trip', methods = ['GET', 'POST'])
 def plan_my_trip():
         if request.method == 'GET':
-        return render_template('plan_my_trip.html')
-    elif request.method == 'POST':
-        return render_template('plan_my_trip.html')
-        fname = request.form.get('fname')
-        mname = request.form.get('mname')
-        lname = request.form.get('lname')
-        dob = request.form.get('dob')
-        phno = request.form.get('phno')
-        gender = request.form.get('gender')
-        passport_no = request.form.get('passport_no')
-        ctype = request.form.get('ctype')
-        source = request.form.get('source')
-        dest = request.form.get('dest')
-        location = request.form.get('location')
+            return render_template('plan_my_trip.html')
+        elif request.method == 'POST':
+            return render_template('plan_my_trip.html')
+            fname = request.form.get('fname')
+            mname = request.form.get('mname')
+            lname = request.form.get('lname')
+            dob = request.form.get('dob')
+            phno = request.form.get('phno')
+            gender = request.form.get('gender')
+            passport_no = request.form.get('passport_no')
+            ctype = request.form.get('ctype')
+            source = request.form.get('source')
+            dest = request.form.get('dest')
+            location = request.form.get('location')
 
-        # checking if middle name exists
-        if mname == "":
-            mname = NULL
-        rtn = mysql_utils.plan_my_trip(cxn, fname, mname, lname, dob, phno, gender, passport_no, stype, ctype, location, source, dest)
+            # checking if middle name exists
+            if mname == "":
+                        mname = NULL
+            rtn = mysql_utils.plan_my_trip(cxn, fname, mname, lname, dob, phno, gender, passport_no, stype, ctype, location, source, dest)
 
 
 
@@ -154,6 +135,7 @@ def booking(trip_id):
     price = float(random.randrange(1000, 2000, 50), 2)
     final_amt = price + tax - discount
     fare_type = "online"    #default value, can be update in booking page
+
     if request.method == 'GET':
         return render_template('booking.html')
     elif request.method == 'POST':
@@ -165,6 +147,7 @@ def booking(trip_id):
 def logout():
     if app_login:
         return redirect(url_for('login_user'))
+
 
 
 def is_strict_match(form: dict, rules: dict):
