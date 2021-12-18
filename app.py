@@ -17,10 +17,7 @@ import mysql_utils
 app = Flask(__name__,
             static_url_path="/",
             static_folder="static")
-'''
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgres+psycopg2://postgres:foodiesss@localhost:5432/abs";
-db = sqlalchemy(app);
-'''
+
 
 
 app_login = False
@@ -28,9 +25,9 @@ cfg_filename = 'app.ini'
 username = ''
 passw = ''
 
-cnx = "dbname=abs user=postgres password=foodiesss host=127.0.0.1 port=5432"
+cnx = "dbname=abs user=postgres password=****** host=127.0.0.1 port=5432"
 
-#cnx = psycopg2.connect( database = 'abs', user = 'postgres', password = 'foodiesss', host = '127.0.0.1', port = '5432')
+#cnx = psycopg2.connect( database = 'abs', user = 'postgres', password = '******', host = '127.0.0.1', port = '5432')
 #cursor = cnx.cursor()
 
 
